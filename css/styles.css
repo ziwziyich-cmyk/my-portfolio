@@ -981,13 +981,13 @@ button:focus-visible {
   object-fit: cover;
   object-position: center;
   display: block;
-  transform: scale(1);
+  transform: scale(1.08);
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .v-card__video-box:hover .v-card__cover,
 .v-card__video-box:focus-within .v-card__cover {
-  transform: scale(1.06);
+  transform: scale(1.13);
 }
 
 /* 整区可点：透明按钮 + 居中播放图标（SVG）；实际播放在弹层内 */
