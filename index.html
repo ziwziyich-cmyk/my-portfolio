@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YangLuoXin — Portfolio</title>
+    <meta name="description" content="YangLuoXin 设计作品集" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-header__logo" href="#top">
+          <span class="site-header__mark" aria-hidden="true"></span>
+          YangLuoXin
+        </a>
+        <nav class="site-nav" aria-label="主导航">
+          <ul class="site-nav__list">
+            <li><a href="#brand">品牌</a></li>
+            <li><a href="#graphic">平面</a></li>
+            <li><a href="#ops">运营</a></li>
+            <li><a href="#detail">详情页</a></li>
+            <li><a href="#video">视频</a></li>
+          </ul>
+        </nav>
+        <a class="site-header__tools" href="#work-grid">浏览项目</a>
+        <a class="site-header__cta" href="#contact-cta">联系我</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- 首屏：参考 Stellar 黑底大标题 -->
+      <section class="hero hero--stellar" id="top" aria-label="介绍">
+        <div class="hero__inner">
+          <h1 class="hero__title hero__title--center">I am YangLuoXin</h1>
+          <p class="hero__sub">
+            用逻辑解构视觉，以数据定义美学。<br />
+            <span class="hero__sub-nowrap">用清晰的系统与叙事，帮助产品在快节奏迭代中保持一致的表达与质感。</span>
+          </p>
+          <button type="button" class="hero__resume-btn" data-resume-open>
+            点击查看我的简历
+          </button>
+        </div>
+      </section>
+
+      <!-- Stellar 式：Featured creators + 双排静态作品条 -->
+      <section class="stellar-marquee" id="work-grid" aria-label="Featured creators">
+        <header class="stellar-marquee__intro">
+          <h2 class="stellar-marquee__title">
+            累计深度服务客户项目30+<br />
+            投流素材总消耗突破1亿+
+          </h2>
+          <p class="stellar-marquee__lede">
+            Delivered 30+ in-depth client projects; total media spend on performance creatives has
+            surpassed RMB 100 million.
+          </p>
+        </header>
+        <div class="marquee-container" data-marquee-viewport>
+          <div class="marquee-track-wrap">
+            <div class="marquee-row marquee-content marquee-row-1"></div>
+          </div>
+          <div class="marquee-track-wrap marquee-track-wrap--offset">
+            <div class="marquee-row marquee-content marquee-row-2"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 品牌设计：左 8 图轮播可拖拽 + 右文案 -->
+      <section class="brand-split" id="brand" aria-labelledby="brand-heading">
+        <div class="brand-split__visual">
+          <div class="brand-carousel" data-brand-carousel>
+            <div class="brand-carousel__viewport">
+              <div class="brand-carousel__track" data-brand-track></div>
+              <div class="brand-carousel__nav" role="group" aria-label="品牌图切换">
+                <button
+                  type="button"
+                  class="arrow-btn arrow-btn--prev"
+                  data-brand-prev
+                  aria-label="上一张"
+                ></button>
+                <button
+                  type="button"
+                  class="arrow-btn arrow-btn--next"
+                  data-brand-next
+                  aria-label="下一张"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="brand-split__content">
+          <h2 id="brand-heading" class="brand-split__title">品牌设计</h2>
+          <p class="brand-split__lede">
+            以“AWAKEN（唤醒）” 为核心灵魂，通过极简的现代美学与活力色彩，成功为一个精品咖啡品牌建立了兼具科技感与生活气息的视觉识别系统。
+          </p>
+          <ul class="brand-split__list">
+            <li>符号化的品牌图腾：极简意象的重塑</li>
+            <li>精准的色彩心理学：清新与能量的并存</li>
+            <li>字体与编排的工业感：专业且克制的态度</li>
+            <li>场景化的视觉延伸：从精神状态到生活方式</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 平面设计：9 横板 + 顶栏左右按钮 -->
+      <section class="h-gallery h-gallery--graphic" id="graphic" aria-labelledby="graphic-heading">
+        <div class="h-gallery__head">
+          <div>
+            <h2 id="graphic-heading" class="section-title">平面设计</h2>
+            <p class="section-lede">探索字体、图形与空间的无限可能</p>
+          </div>
+          <div class="h-gallery__controls">
+            <button
+              type="button"
+              class="arrow-btn arrow-btn--prev"
+              data-hg-prev="graphic"
+              aria-label="向左"
+            ></button>
+            <button
+              type="button"
+              class="arrow-btn arrow-btn--next"
+              data-hg-next="graphic"
+              aria-label="向右"
+            ></button>
+          </div>
+        </div>
+        <div class="h-gallery__viewport">
+          <div class="h-gallery__track" data-hg-track="graphic"></div>
+        </div>
+      </section>
+
+      <!-- 运营设计：9 横板 + 顶栏左右按钮 -->
+      <section class="h-gallery h-gallery--ops" id="ops" aria-labelledby="ops-heading">
+        <div class="h-gallery__head">
+          <div>
+            <h2 id="ops-heading" class="section-title">运营设计</h2>
+            <p class="section-lede">
+              从 0 到 1 的视觉策略构建，到单月百万级消耗的素材迭代
+            </p>
+          </div>
+          <div class="h-gallery__controls">
+            <button
+              type="button"
+              class="arrow-btn arrow-btn--prev"
+              data-hg-prev="ops"
+              aria-label="向左"
+            ></button>
+            <button
+              type="button"
+              class="arrow-btn arrow-btn--next"
+              data-hg-next="ops"
+              aria-label="向右"
+            ></button>
+          </div>
+        </div>
+        <div class="h-gallery__viewport">
+          <div class="h-gallery__track" data-hg-track="ops"></div>
+        </div>
+      </section>
+
+      <!-- 详情页：5 图 + 点击看大图 -->
+      <section class="detail-strip" id="detail" aria-labelledby="detail-heading">
+        <div class="detail-strip__head">
+          <h2 id="detail-heading" class="section-title">详情页设计</h2>
+          <p class="section-lede">深度拆解产品核心卖点，通过视觉逻辑重构详情页叙事。</p>
+        </div>
+        <div class="detail-strip__grid" data-detail-grid></div>
+      </section>
+
+      <!-- 视频：筛选 + 卡片网格 -->
+      <section class="video-hub" id="video" aria-labelledby="video-heading">
+        <div class="video-hub__head">
+          <h2 id="video-heading" class="section-title">视频作品</h2>
+          <p class="section-lede video-hub__note">
+            原视频经过压缩处理，画质会有一点影响，敬请谅解！
+          </p>
+        </div>
+        <div class="video-hub__filters" role="tablist" aria-label="视频分类">
+          <button type="button" class="v-filter is-active" data-v-filter="all">
+            全部
+          </button>
+          <button type="button" class="v-filter" data-v-filter="product">
+            产品视频
+          </button>
+          <button type="button" class="v-filter" data-v-filter="talk">
+            口播内容
+          </button>
+          <button type="button" class="v-filter" data-v-filter="event">
+            活动宣传
+          </button>
+          <button type="button" class="v-filter" data-v-filter="tool">
+            工具推广
+          </button>
+        </div>
+        <div class="video-hub__grid" data-video-grid></div>
+      </section>
+
+      <!-- 底部 CTA：渐变 + 噪点 + 滑动按钮 -->
+      <section class="final-cta" id="contact-cta" aria-labelledby="cta-title">
+        <div class="final-cta__mesh" aria-hidden="true"></div>
+        <div class="final-cta__noise final-cta__noise--coarse" aria-hidden="true"></div>
+        <div class="final-cta__noise final-cta__noise--fine" aria-hidden="true"></div>
+        <div class="final-cta__sparkle" aria-hidden="true"></div>
+        <div class="final-cta__vignette" aria-hidden="true"></div>
+        <div class="final-cta__inner">
+          <h2 id="cta-title" class="final-cta__title">
+            期待与你一起做出更有价值的内容
+          </h2>
+          <div class="contact-cta-wrap">
+            <a class="contact-cta-btn" href="tel:18569417091">
+              <span class="morph-cta__icon morph-cta__icon--phone" aria-hidden="true"></span>
+              <span>18569417091</span>
+            </a>
+            <a class="contact-cta-btn" href="mailto:2926151336@qq.com">
+              <span class="morph-cta__icon morph-cta__icon--mail" aria-hidden="true"></span>
+              <span>2926151336@qq.com</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>YangLuoXin</span>
+        <span>© <span id="year"></span></span>
+      </div>
+    </footer>
+
+    <!-- 全站大图预览：滚轮缩放、拖拽平移 -->
+    <div class="lightbox" data-lightbox hidden>
+      <button type="button" class="lightbox__close" data-lightbox-close aria-label="关闭">
+        ×
+      </button>
+      <div class="lightbox__toolbar" role="toolbar" aria-label="预览缩放">
+        <button type="button" class="lightbox__tool" data-lightbox-zoom-out aria-label="缩小">
+          −
+        </button>
+        <button type="button" class="lightbox__tool" data-lightbox-zoom-reset aria-label="重置视图">
+          重置
+        </button>
+        <button type="button" class="lightbox__tool" data-lightbox-zoom-in aria-label="放大">
+          +
+        </button>
+      </div>
+      <div class="lightbox__stage" data-lightbox-stage>
+        <div class="lightbox__frame" data-lightbox-frame>
+          <img class="lightbox__img" data-lightbox-img alt="" draggable="false" />
+        </div>
+      </div>
+    </div>
+
+    <div class="resume-modal" data-resume-modal hidden>
+      <div class="resume-modal__backdrop" data-resume-close aria-hidden="true"></div>
+      <div class="resume-modal__panel" role="dialog" aria-modal="true" aria-label="简历页面">
+        <div class="resume-modal__head">
+          <h2 class="resume-modal__title">杨罗鑫-视觉设计师-简历</h2>
+          <button type="button" class="resume-modal__close" data-resume-close aria-label="关闭简历">
+            关闭
+          </button>
+        </div>
+        <div class="resume-modal__stage" data-resume-stage>
+          <img
+            class="resume-modal__image"
+            src="images/resume.jpg"
+            alt="YangLuoXin 简历"
+            loading="lazy"
+            draggable="false"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 视频作品：站内放大播放（B 站嵌入，保留自带进度条） -->
+    <div class="video-hub-modal" data-video-hub-modal hidden>
+      <div class="video-hub-modal__backdrop" data-video-hub-modal-close aria-hidden="true"></div>
+      <div
+        class="video-hub-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="video-hub-modal-title"
+      >
+        <button type="button" class="video-hub-modal__close" data-video-hub-modal-close aria-label="关闭">
+          ×
+        </button>
+        <div class="video-hub-modal__head">
+          <h2 id="video-hub-modal-title" class="video-hub-modal__title" data-video-hub-modal-title></h2>
+          <p class="video-hub-modal__lede" data-video-hub-modal-lede></p>
+        </div>
+        <div class="video-hub-modal__shell">
+          <iframe
+            class="video-hub-modal__iframe"
+            data-video-hub-modal-iframe
+            title=""
+            allowfullscreen="true"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 先加载 GSAP，再加载站点脚本（避免 gsap is not defined） -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
