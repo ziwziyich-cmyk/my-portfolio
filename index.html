@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YangLuoXin — Portfolio</title>
+    <meta name="description" content="YangLuoXin 视觉设计作品集" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css?v=21" />
+  </head>
+  <body>
+    <!-- Loading -->
+    <div class="loader" data-loader aria-live="polite">
+      <div class="loader__glow" aria-hidden="true"></div>
+      <p class="loader__label">LOADING PORTFOLIO</p>
+      <p class="loader__pct" data-loader-pct>0%</p>
+    </div>
+
+    <header class="nav" data-nav>
+      <div class="nav__shell">
+        <div class="nav__bar">
+          <a class="nav__brand" href="#top">
+            <img class="nav__mark" src="assets/logo-mark.jpg" alt="" />
+            <span>YangLX</span>
+          </a>
+          <nav class="nav__links" aria-label="主导航">
+            <a href="#experience">工作经历</a>
+            <a href="#works">精选作品</a>
+            <a href="#strengths">个人优势</a>
+          </nav>
+          <a class="nav__cta" href="#contact">联系我</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="top" aria-label="首页">
+        <div class="hero__bg" aria-hidden="true">
+          <div class="aurora-container" data-aurora></div>
+          <div class="hero__veil"></div>
+        </div>
+        <div class="hero__mid">
+          <div class="hero__copy">
+            <h1 class="hero__title">
+              <span class="hero__name">
+                YANGLUOXIN
+                <span class="hero__star" aria-hidden="true"></span>
+              </span>
+              <span class="hero__word">
+                PORTFOLIO
+                <em class="hero__sign">YangLuoXin</em>
+              </span>
+            </h1>
+            <p class="hero__lede">
+              用逻辑解构视觉，以数据定义美学<br />
+              用清晰的系统与叙事，帮助产品在快节奏迭代中保持一致的表达与质感
+            </p>
+          </div>
+        </div>
+        <div class="hero__gallery" aria-label="作品环形画廊">
+          <div class="circular-gallery" data-circular-gallery></div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="section experience" id="experience" aria-labelledby="exp-title">
+        <div class="section__head">
+          <h2 id="exp-title" class="section__title">
+            WORK EXPERIENCE
+            <span class="section__arrow" aria-hidden="true">↗</span>
+          </h2>
+          <p class="section__sub">个人经历</p>
+        </div>
+
+        <div class="about reveal">
+          <div class="about__visual">
+            <img src="assets/avatar-3d.jpg" alt="YangLuoXin 角色形象" />
+          </div>
+          <div class="about__body">
+            <p class="about__eyebrow">ABOUT ME</p>
+            <h3 class="about__hello">Hi, I am YangLuoXin!</h3>
+            <p class="about__bio">
+              擅长用逻辑和数据做设计，把复杂需求拆成可执行的视觉策略。并用 AIGC 工作流帮助产品在快速更新换代时，依然保持统一的视觉质感与良好的用户体验。
+            </p>
+            <dl class="about__meta">
+              <div>
+                <dt>当前身份</dt>
+                <dd>AI 视觉设计师</dd>
+              </div>
+              <div>
+                <dt>服务方向</dt>
+                <dd>品牌/AIGC/电商/投流</dd>
+              </div>
+              <div>
+                <dt>手机</dt>
+                <dd>18569417091</dd>
+              </div>
+              <div>
+                <dt>邮箱</dt>
+                <dd>2926151336@qq.com</dd>
+              </div>
+            </dl>
+            <div class="about__stats">
+              <div><strong>6+</strong><span>年经验</span></div>
+              <div><strong>30+</strong><span>深度项目</span></div>
+              <div><strong>1000+</strong><span>视觉页面</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="career reveal">
+          <div class="career__head">
+            <span class="career__eyebrow">CAREER PATH</span>
+            <h3 class="career__title">工作经历</h3>
+          </div>
+          <div class="career__line" aria-hidden="true"></div>
+          <div class="career__grid">
+            <article class="career__item">
+              <time>2023.04 — 至今</time>
+              <h4>未来影像科技有限公司</h4>
+              <span class="career__role">AI 设计师 / 视觉设计负责人</span>
+              <p>搭建品牌与投放视觉体系，推动 AIGC 提效与多项目并行交付。</p>
+            </article>
+            <article class="career__item">
+              <time>2020.09 — 2023.03</time>
+              <h4>星澜创意工作室</h4>
+              <span class="career__role">AIGC 设计师</span>
+              <p>负责内容视觉迭代、风格统一与可复用组件沉淀。</p>
+            </article>
+            <article class="career__item">
+              <time>2019.07 — 2020.08</time>
+              <h4>新象品牌设计</h4>
+              <span class="career__role">视觉设计师</span>
+              <p>从品牌识别到落地物料，完成多行业视觉表达。</p>
+            </article>
+          </div>
+          <p class="career__watermark" aria-hidden="true">YANG LUOXIN</p>
+        </div>
+      </section>
+
+      <!-- Works -->
+      <section class="section works" id="works" aria-labelledby="works-title">
+        <div class="section__head">
+          <h2 id="works-title" class="section__title">
+            SELECTED WORKS
+            <span class="section__arrow" aria-hidden="true">↗</span>
+          </h2>
+          <p class="section__sub">精选作品</p>
+        </div>
+        <div class="works__grid">
+          <a class="work-card reveal" href="#works">
+            <img src="assets/feat-1.jpg" alt="" />
+            <div class="work-card__text">
+              <h3>空间视觉氛围</h3>
+              <p>场景搭建 / 色彩情绪 / 视觉叙事</p>
+            </div>
+          </a>
+          <a class="work-card reveal" href="#works">
+            <img src="assets/work-1.jpg" alt="" />
+            <div class="work-card__text">
+              <h3>角色与潮流</h3>
+              <p>IP 形象 / 3D 插画 / 风格推演</p>
+            </div>
+          </a>
+          <a class="work-card reveal" href="#works">
+            <img src="assets/work-4.jpg" alt="" />
+            <div class="work-card__text">
+              <h3>产品质感表达</h3>
+              <p>材质光影 / 卖点构图 / 系列延展</p>
+            </div>
+          </a>
+          <a class="work-card reveal" href="#works">
+            <img src="assets/work-2.jpg" alt="" />
+            <div class="work-card__text">
+              <h3>动效与节奏</h3>
+              <p>镜头语言 / 节奏剪辑 / 品牌记忆点</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Strengths -->
+      <section class="section strengths" id="strengths" aria-labelledby="str-title">
+        <div class="section__head">
+          <h2 id="str-title" class="section__title">
+            CORE STRENGTHS
+            <span class="section__arrow" aria-hidden="true">↗</span>
+          </h2>
+          <p class="section__sub">个人优势</p>
+        </div>
+        <div class="strengths__grid">
+          <article class="str-card reveal" data-str-card>
+            <div class="str-card__top">
+              <span>01</span>
+              <span>CORE</span>
+            </div>
+            <h3>完整项目主导能力</h3>
+            <div class="str-card__art" aria-hidden="true"></div>
+          </article>
+          <article class="str-card reveal" data-str-card>
+            <div class="str-card__top">
+              <span>02</span>
+              <span>CORE</span>
+            </div>
+            <h3>品牌视觉体系搭建</h3>
+            <div class="str-card__art str-card__art--b" aria-hidden="true"></div>
+          </article>
+          <article class="str-card reveal" data-str-card>
+            <div class="str-card__top">
+              <span>03</span>
+              <span>SYSTEM</span>
+            </div>
+            <h3>AI 设计提效</h3>
+            <div class="str-card__art str-card__art--c" aria-hidden="true"></div>
+          </article>
+          <article class="str-card str-card--active reveal" data-str-card>
+            <div class="str-card__top">
+              <span>04</span>
+              <span>LEAD</span>
+            </div>
+            <h3>设计管理统筹</h3>
+            <ul class="str-card__points">
+              <li>多项目并行排期</li>
+              <li>设计标准与复盘沉淀</li>
+              <li>稳定交付与风险预判</li>
+            </ul>
+          </article>
+          <article class="str-card reveal" data-str-card>
+            <div class="str-card__top">
+              <span>05</span>
+              <span>SYSTEM</span>
+            </div>
+            <h3>跨部门协同</h3>
+            <div class="str-card__art str-card__art--d" aria-hidden="true"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact__layout reveal">
+          <div class="contact__left">
+            <p class="contact__eyebrow">联系方式</p>
+            <h2 id="contact-title" class="contact__title">
+              LET'S BUILD BETTER<br />VISUAL SYSTEMS
+              <span aria-hidden="true">↘</span>
+            </h2>
+            <a class="nav__brand contact__brand" href="#top">
+              <img class="nav__mark" src="assets/logo-mark.jpg" alt="" />
+              <span>YangLX</span>
+            </a>
+          </div>
+          <aside class="contact__card">
+            <p class="contact__card-title">CONTACT</p>
+            <ul class="contact__list">
+              <li><span>手机</span><strong>18569417091</strong></li>
+              <li><span>微信号</span><strong>emo**ss</strong></li>
+              <li><span>邮箱</span><strong>2926151336@qq.com</strong></li>
+            </ul>
+            <p class="contact__note">Visual, Brand &amp; AI Design</p>
+            <div class="contact__qr" aria-hidden="true"></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>YangLuoXin Portfolio</span>
+      <span>© <span data-year></span></span>
+    </footer>
+
+    <div class="gallery-lightbox" data-gallery-lightbox hidden>
+      <button type="button" class="gallery-lightbox__close" data-gallery-lightbox-close aria-label="关闭">
+        ×
+      </button>
+      <div class="gallery-lightbox__tools" role="toolbar" aria-label="图片缩放">
+        <button type="button" class="gallery-lightbox__tool" data-lb-zoom-out aria-label="缩小">−</button>
+        <button type="button" class="gallery-lightbox__tool" data-lb-zoom-reset aria-label="适应屏幕">适应</button>
+        <button type="button" class="gallery-lightbox__tool" data-lb-zoom-in aria-label="放大">+</button>
+      </div>
+      <div class="gallery-lightbox__stage" data-gallery-lightbox-stage>
+        <img class="gallery-lightbox__img" data-gallery-lightbox-img alt="作品大图" draggable="false" />
+      </div>
+    </div>
+
+    <script type="module" src="js/main.js?v=20"></script>
+  </body>
+</html>

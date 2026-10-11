@@ -1,0 +1,8 @@
+# Temp / working folders
+_frames/
+assets/_preview/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
