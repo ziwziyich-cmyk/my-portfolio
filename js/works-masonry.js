@@ -15,7 +15,7 @@ const CATALOGS = {
       { id: "graphic-09", type: "image", img: "平面设计/%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5-01.webp", width: 1080, height: 2275, title: "平面设计", description: "活动海报-01" },
       { id: "graphic-10", type: "image", img: "平面设计/%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5-02.webp", width: 1118, height: 2291, title: "平面设计", description: "活动海报-02" },
       { id: "graphic-11", type: "image", img: "平面设计/%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5-03.webp", width: 1080, height: 2275, title: "平面设计", description: "活动海报-03" },
-      { id: "graphic-12", type: "image", img: "平面设计/%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5-04.webp", width: 5333, height: 3000, title: "平面设计", description: "活动海报-04" },
+      { id: "graphic-12", type: "image", img: "平面设计/%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5-04.webp", width: 1920, height: 1080, title: "平面设计", description: "活动海报-04" },
       { id: "graphic-13", type: "image", img: "平面设计/%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5-05.webp", width: 1080, height: 1920, title: "平面设计", description: "活动海报-05" },
       { id: "graphic-14", type: "image", img: "平面设计/%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5-06.webp", width: 1080, height: 2475, title: "平面设计", description: "活动海报-06" },
       { id: "graphic-15", type: "image", img: "平面设计/%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5-07.webp", width: 1616, height: 3090, title: "平面设计", description: "活动海报-07" },
@@ -26,8 +26,8 @@ const CATALOGS = {
       { id: "graphic-20", type: "image", img: "平面设计/%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5-012.webp", width: 942, height: 2482, title: "平面设计", description: "活动海报-012" },
       { id: "graphic-21", type: "image", img: "平面设计/%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5-013.webp", width: 1125, height: 2436, title: "平面设计", description: "活动海报-013" },
       { id: "graphic-22", type: "image", img: "平面设计/%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5.webp", width: 769, height: 1184, title: "平面设计", description: "活动海报" },
-      { id: "graphic-23", type: "image", img: "平面设计/%E5%AD%97%E4%BD%93%E8%AE%BE%E8%AE%A1%20%281%29.webp", width: 8000, height: 4414, title: "平面设计", description: "字体设计 (1)" },
-      { id: "graphic-24", type: "image", img: "平面设计/%E5%AD%97%E4%BD%93%E8%AE%BE%E8%AE%A1%20%282%29.webp", width: 8000, height: 4414, title: "平面设计", description: "字体设计 (2)" },
+      { id: "graphic-23", type: "image", img: "平面设计/%E5%AD%97%E4%BD%93%E8%AE%BE%E8%AE%A1%20%281%29.webp", width: 1920, height: 1059, title: "平面设计", description: "字体设计 (1)" },
+      { id: "graphic-24", type: "image", img: "平面设计/%E5%AD%97%E4%BD%93%E8%AE%BE%E8%AE%A1%20%282%29.webp", width: 1920, height: 1059, title: "平面设计", description: "字体设计 (2)" },
       { id: "graphic-25", type: "image", img: "平面设计/%E8%90%BD%E5%9C%B0%E9%A1%B5%E9%95%BF%E5%9B%BE-01.webp", width: 1000, height: 10049, title: "平面设计", description: "落地页长图-01" },
       { id: "graphic-26", type: "image", img: "平面设计/%E8%90%BD%E5%9C%B0%E9%A1%B5%E9%95%BF%E5%9B%BE-02.webp", width: 1125, height: 4941, title: "平面设计", description: "落地页长图-02" },
       { id: "graphic-27", type: "image", img: "平面设计/%E8%90%BD%E5%9C%B0%E9%A1%B5%E9%95%BF%E5%9B%BE-03.webp", width: 1080, height: 4415, title: "平面设计", description: "落地页长图-03" },
@@ -36,11 +36,11 @@ const CATALOGS = {
       { id: "graphic-30", type: "image", img: "平面设计/%E8%90%BD%E5%9C%B0%E9%A1%B5%E9%95%BF%E5%9B%BE-06.webp", width: 1080, height: 13640, title: "平面设计", description: "落地页长图-06" },
       { id: "graphic-31", type: "image", img: "平面设计/%E8%90%BD%E5%9C%B0%E9%A1%B5%E9%95%BF%E5%9B%BE-07.webp", width: 1080, height: 4525, title: "平面设计", description: "落地页长图-07" },
       { id: "graphic-32", type: "image", img: "平面设计/%E8%90%BD%E5%9C%B0%E9%A1%B5%E9%95%BF%E5%9B%BE-08.webp", width: 1080, height: 13350, title: "平面设计", description: "落地页长图-08" },
-      { id: "graphic-33", type: "image", img: "平面设计/%E7%94%BB%E5%86%8C%E8%AE%BE%E8%AE%A1%20%281%29.webp", width: 8000, height: 4500, title: "平面设计", description: "画册设计 (1)" },
-      { id: "graphic-34", type: "image", img: "平面设计/%E7%94%BB%E5%86%8C%E8%AE%BE%E8%AE%A1%20%282%29.webp", width: 8000, height: 4500, title: "平面设计", description: "画册设计 (2)" },
-      { id: "graphic-35", type: "image", img: "平面设计/%E7%94%BB%E5%86%8C%E8%AE%BE%E8%AE%A1%20%283%29.webp", width: 8000, height: 4500, title: "平面设计", description: "画册设计 (3)" },
-      { id: "graphic-36", type: "image", img: "平面设计/%E7%94%BB%E5%86%8C%E8%AE%BE%E8%AE%A1%20%284%29.webp", width: 8000, height: 4500, title: "平面设计", description: "画册设计 (4)" },
-      { id: "graphic-37", type: "image", img: "平面设计/%E7%94%BB%E5%86%8C%E8%AE%BE%E8%AE%A1%20%285%29.webp", width: 8000, height: 4500, title: "平面设计", description: "画册设计 (5)" },
+      { id: "graphic-33", type: "image", img: "平面设计/%E7%94%BB%E5%86%8C%E8%AE%BE%E8%AE%A1%20%281%29.webp", width: 1920, height: 1080, title: "平面设计", description: "画册设计 (1)" },
+      { id: "graphic-34", type: "image", img: "平面设计/%E7%94%BB%E5%86%8C%E8%AE%BE%E8%AE%A1%20%282%29.webp", width: 1920, height: 1080, title: "平面设计", description: "画册设计 (2)" },
+      { id: "graphic-35", type: "image", img: "平面设计/%E7%94%BB%E5%86%8C%E8%AE%BE%E8%AE%A1%20%283%29.webp", width: 1920, height: 1080, title: "平面设计", description: "画册设计 (3)" },
+      { id: "graphic-36", type: "image", img: "平面设计/%E7%94%BB%E5%86%8C%E8%AE%BE%E8%AE%A1%20%284%29.webp", width: 1920, height: 1080, title: "平面设计", description: "画册设计 (4)" },
+      { id: "graphic-37", type: "image", img: "平面设计/%E7%94%BB%E5%86%8C%E8%AE%BE%E8%AE%A1%20%285%29.webp", width: 1920, height: 1080, title: "平面设计", description: "画册设计 (5)" },
       { id: "graphic-38", type: "image", img: "平面设计/%E7%94%B5%E5%95%86%E8%AF%A6%E6%83%85%E9%A1%B5%20%281%29.webp", width: 790, height: 13858, title: "平面设计", description: "电商详情页 (1)" },
       { id: "graphic-39", type: "image", img: "平面设计/%E7%94%B5%E5%95%86%E8%AF%A6%E6%83%85%E9%A1%B5%20%282%29.webp", width: 404, height: 9898, title: "平面设计", description: "电商详情页 (2)" },
       { id: "graphic-40", type: "image", img: "平面设计/%E7%94%B5%E5%95%86%E8%AF%A6%E6%83%85%E9%A1%B5%20%283%29.webp", width: 404, height: 14455, title: "平面设计", description: "电商详情页 (3)" },
@@ -68,8 +68,8 @@ const CATALOGS = {
         return {
           id: `brand-${n}`,
           img: `assets/works/brand/coffee-${n}.webp`,
-          width: 8000,
-          height: 4500,
+          width: 1920,
+          height: 1080,
           title: "品牌设计",
           description: `咖啡-${n}`,
         };
@@ -93,8 +93,8 @@ const CATALOGS = {
     items: [1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => ({
       id: `operation-${n}`,
       img: `运营/${n}.webp`,
-      width: n === 1 || (n >= 4 && n <= 6) ? 4000 : 8000,
-      height: n === 1 || (n >= 4 && n <= 6) ? 2250 : 4500,
+      width: 1920,
+      height: 1080,
       title: "运营设计",
       description: String(n),
     })),
@@ -287,7 +287,7 @@ export function mountWorksMasonry() {
       const media =
         item.type === "video"
           ? `<video class="masonry__image" data-src="${item.img}" muted loop playsinline preload="none"></video>`
-          : `<img class="masonry__image" src="${item.img}" alt="${item.description || item.title}" loading="lazy" decoding="async" draggable="false" />`;
+          : `<img class="masonry__image" data-src="${item.img}" alt="${item.description || item.title}" decoding="async" draggable="false" />`;
       const copy = item.note
         ? `<span class="masonry__copy"><strong>${item.description}</strong><span>${item.note}</span></span>`
         : "";
@@ -337,39 +337,49 @@ export function mountWorksMasonry() {
       if (media.tagName === "VIDEO") {
         media.muted = true;
         media.addEventListener("loadeddata", mark, { once: true });
-      } else if (media.complete) mark();
-      else media.addEventListener("load", mark, { once: true });
+      } else {
+        media.addEventListener("load", mark);
+      }
     });
 
-    const videos = [...root.querySelectorAll("video.masonry__image")];
-    if (videos.length && "IntersectionObserver" in window) {
-      const videoIo = new IntersectionObserver(
+    const panel = page.querySelector(".works-modal__panel") || null;
+    const mediaNodes = [...root.querySelectorAll(".masonry__image")];
+    if (mediaNodes.length && "IntersectionObserver" in window) {
+      const mediaIo = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            const video = entry.target;
-            const src = video.getAttribute("data-src");
+            const media = entry.target;
+            const src = media.getAttribute("data-src");
+            if (!src) return;
             if (entry.isIntersecting) {
-              if (src && video.getAttribute("src") !== src) {
-                video.src = src;
-                video.load();
+              if (media.getAttribute("src") !== src) {
+                media.src = src;
+                if (media.tagName === "VIDEO") media.load();
               }
-              video.play().catch(() => {});
+              if (media.tagName === "VIDEO") media.play().catch(() => {});
             } else {
-              video.pause();
+              if (media.tagName === "VIDEO") {
+                media.pause();
+                return;
+              }
+              // Drop decoded bitmaps that left the viewport to avoid iOS Safari OOM.
+              if (media.getAttribute("src")) {
+                media.removeAttribute("src");
+                media.removeAttribute("data-loaded");
+              }
             }
           });
         },
-        { root: page.querySelector(".works-modal__panel") || null, rootMargin: "120px 0px", threshold: 0.2 }
+        { root: panel, rootMargin: "160px 0px", threshold: 0.01 }
       );
-      videos.forEach((video) => videoIo.observe(video));
-      root._videoIo = videoIo;
+      mediaNodes.forEach((media) => mediaIo.observe(media));
+      root._videoIo = mediaIo;
     } else {
-      videos.forEach((video) => {
-        const src = video.getAttribute("data-src");
-        if (src) {
-          video.src = src;
-          video.play().catch(() => {});
-        }
+      mediaNodes.forEach((media) => {
+        const src = media.getAttribute("data-src");
+        if (!src) return;
+        media.src = src;
+        if (media.tagName === "VIDEO") media.play().catch(() => {});
       });
     }
 
@@ -451,6 +461,9 @@ export function mountWorksMasonry() {
   const close = () => {
     page.hidden = true;
     closeBox();
+    root._videoIo?.disconnect();
+    root._videoIo = null;
+    root.innerHTML = "";
     document.body.style.overflow = "";
     document.documentElement.style.overflow = "";
     window.scrollTo(0, scrollY);

@@ -1,6 +1,6 @@
 import { createAurora } from "./aurora.js?v=2";
 import { createCircularGallery } from "./circular-gallery.js?v=22";
-import { mountWorksMasonry } from "./works-masonry.js?v=32";
+import { mountWorksMasonry } from "./works-masonry.js?v=33";
 
 (() => {
   const loader = document.querySelector("[data-loader]");
