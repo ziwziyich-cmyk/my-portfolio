@@ -8,7 +8,7 @@ void main() {
 `;
 
 const FRAG = `#version 300 es
-precision highp float;
+precision mediump float;
 
 uniform float uTime;
 uniform float uAmplitude;
@@ -118,7 +118,7 @@ void main() {
 
 /**
  * Mount React-Bits-style Aurora into a DOM container.
- * @returns {() => void} dispose
+ * @returns {{ dispose: () => void, setPaused: (v: boolean) => void }}
  */
 export function createAurora(ctn, options = {}) {
   const state = {
@@ -129,10 +129,14 @@ export function createAurora(ctn, options = {}) {
     lightMode: options.lightMode ?? false,
   };
 
+  const dpr = Math.min(window.devicePixelRatio || 1, options.dpr ?? 1.25);
+  const resolutionScale = options.resolutionScale ?? 0.7;
+
   const renderer = new Renderer({
     alpha: true,
     premultipliedAlpha: true,
-    antialias: true,
+    antialias: false,
+    dpr: 1,
   });
   const gl = renderer.gl;
   gl.clearColor(0, 0, 0, 0);
@@ -144,15 +148,28 @@ export function createAurora(ctn, options = {}) {
   gl.canvas.style.backgroundColor = "transparent";
 
   let program;
+  let animateId = 0;
+  let running = false;
+  let pageVisible = !document.hidden;
+  let inView = true;
+
+  const colorStopsArray = state.colorStops.map((hex) => {
+    const c = new Color(hex);
+    return [c.r, c.g, c.b];
+  });
 
   function resize() {
     if (!ctn) return;
     const width = ctn.offsetWidth;
     const height = ctn.offsetHeight;
     if (!width || !height) return;
-    renderer.setSize(width, height);
+    const rw = Math.max(1, Math.round(width * dpr * resolutionScale));
+    const rh = Math.max(1, Math.round(height * dpr * resolutionScale));
+    renderer.setSize(rw, rh);
+    gl.canvas.style.width = "100%";
+    gl.canvas.style.height = "100%";
     if (program) {
-      program.uniforms.uResolution.value = [width, height];
+      program.uniforms.uResolution.value = [rw, rh];
     }
   }
 
@@ -163,11 +180,6 @@ export function createAurora(ctn, options = {}) {
     delete geometry.attributes.uv;
   }
 
-  const colorStopsArray = state.colorStops.map((hex) => {
-    const c = new Color(hex);
-    return [c.r, c.g, c.b];
-  });
-
   program = new Program(gl, {
     vertex: VERT,
     fragment: FRAG,
@@ -175,7 +187,7 @@ export function createAurora(ctn, options = {}) {
       uTime: { value: 0 },
       uAmplitude: { value: state.amplitude },
       uColorStops: { value: colorStopsArray },
-      uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
+      uResolution: { value: [1, 1] },
       uBlend: { value: state.blend },
       uLightMode: { value: state.lightMode ? 1 : 0 },
     },
@@ -184,28 +196,68 @@ export function createAurora(ctn, options = {}) {
   const mesh = new Mesh(gl, { geometry, program });
   ctn.appendChild(gl.canvas);
 
-  let animateId = 0;
   const update = (t) => {
+    if (!running) return;
     animateId = requestAnimationFrame(update);
     program.uniforms.uTime.value = t * 0.01 * state.speed * 0.1;
     program.uniforms.uAmplitude.value = state.amplitude;
     program.uniforms.uBlend.value = state.blend;
-    program.uniforms.uLightMode.value = state.lightMode ? 1 : 0;
-    program.uniforms.uColorStops.value = state.colorStops.map((hex) => {
-      const c = new Color(hex);
-      return [c.r, c.g, c.b];
-    });
     renderer.render({ scene: mesh });
   };
-  animateId = requestAnimationFrame(update);
-  resize();
 
-  return () => {
-    cancelAnimationFrame(animateId);
+  const start = () => {
+    if (running || !pageVisible || !inView) return;
+    running = true;
+    animateId = requestAnimationFrame(update);
+  };
+
+  const stop = () => {
+    running = false;
+    if (animateId) cancelAnimationFrame(animateId);
+    animateId = 0;
+  };
+
+  const setPaused = (paused) => {
+    inView = !paused;
+    if (paused) stop();
+    else start();
+  };
+
+  const onVisibility = () => {
+    pageVisible = !document.hidden;
+    if (pageVisible) start();
+    else stop();
+  };
+
+  document.addEventListener("visibilitychange", onVisibility);
+
+  let io;
+  if ("IntersectionObserver" in window) {
+    io = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        inView = !!entry?.isIntersecting;
+        if (inView) start();
+        else stop();
+      },
+      { rootMargin: "10% 0px", threshold: 0.01 }
+    );
+    io.observe(ctn);
+  }
+
+  resize();
+  start();
+
+  const dispose = () => {
+    stop();
+    io?.disconnect();
+    document.removeEventListener("visibilitychange", onVisibility);
     window.removeEventListener("resize", resize);
     if (ctn && gl.canvas.parentNode === ctn) {
       ctn.removeChild(gl.canvas);
     }
     gl.getExtension("WEBGL_lose_context")?.loseContext();
   };
+
+  return { dispose, setPaused };
 }

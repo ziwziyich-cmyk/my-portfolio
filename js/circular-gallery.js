@@ -449,8 +449,8 @@ class App {
   createRenderer() {
     this.renderer = new Renderer({
       alpha: true,
-      antialias: true,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      antialias: false,
+      dpr: Math.min(window.devicePixelRatio || 1, 1.5)
     });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
@@ -469,8 +469,8 @@ class App {
   }
   createGeometry() {
     this.planeGeometry = new Plane(this.gl, {
-      heightSegments: 50,
-      widthSegments: 100
+      heightSegments: 16,
+      widthSegments: 32
     });
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
@@ -567,9 +567,12 @@ class App {
     if (this.dragMoved) this.setHovered(null);
   }
   onTouchUp(e) {
+    const wasDown = this.isDown;
     const wasDrag = this.dragMoved;
     this.isDown = false;
     this.pointerDown = false;
+    if (!wasDown) return;
+    if (document.querySelector("[data-gallery-lightbox]:not([hidden]), [data-masonry-box]:not([hidden])")) return;
     if (wasDrag) {
       this.onCheck();
       return;
@@ -651,7 +654,20 @@ class App {
       this.medias.forEach(media => media.onResize({ screen: this.screen, viewport: this.viewport }));
     }
   }
+  setPaused(paused) {
+    this.paused = !!paused;
+    if (this.paused) {
+      window.cancelAnimationFrame(this.raf);
+      this.raf = 0;
+      return;
+    }
+    if (!this.raf) this.update();
+  }
   update() {
+    if (this.paused || document.hidden) {
+      this.raf = 0;
+      return;
+    }
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
     if (this.medias) {
@@ -664,8 +680,12 @@ class App {
   addEventListeners() {
     this.boundOnResize = this.onResize.bind(this);
     this.boundOnWheel = (e) => {
+      const absX = Math.abs(e.deltaX);
+      const absY = Math.abs(e.deltaY);
+      if (absY >= absX) return;
       e.preventDefault();
-      this.onWheel(e);
+      this.scroll.target += (e.deltaX > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
+      this.onCheckDebounce();
     };
     this.boundOnTouchDown = this.onTouchDown.bind(this);
     this.boundOnTouchMove = this.onTouchMove.bind(this);
@@ -674,7 +694,12 @@ class App {
     this.boundOnPointerLeave = this.onPointerLeave.bind(this);
     this.boundOnKeyDown = this.onKeyDown.bind(this);
 
+    this.boundOnVisibility = () => {
+      if (document.hidden) this.setPaused(true);
+      else if (this.inView !== false) this.setPaused(false);
+    };
     window.addEventListener('resize', this.boundOnResize);
+    document.addEventListener('visibilitychange', this.boundOnVisibility);
     this.container.addEventListener('wheel', this.boundOnWheel, { passive: false });
     this.container.addEventListener('mousedown', this.boundOnTouchDown);
     window.addEventListener('mousemove', this.boundOnTouchMove);
@@ -685,10 +710,24 @@ class App {
     window.addEventListener('touchmove', this.boundOnTouchMove, { passive: true });
     window.addEventListener('touchend', this.boundOnTouchUp);
     this.container.addEventListener('keydown', this.boundOnKeyDown);
+
+    if ('IntersectionObserver' in window) {
+      this.visibilityIo = new IntersectionObserver(
+        (entries) => {
+          const visible = !!entries[0]?.isIntersecting;
+          this.inView = visible;
+          if (!document.hidden) this.setPaused(!visible);
+        },
+        { rootMargin: '20% 0px', threshold: 0.01 }
+      );
+      this.visibilityIo.observe(this.container);
+    }
   }
   destroy() {
     window.cancelAnimationFrame(this.raf);
+    this.visibilityIo?.disconnect();
     window.removeEventListener('resize', this.boundOnResize);
+    document.removeEventListener('visibilitychange', this.boundOnVisibility);
     window.removeEventListener('mousemove', this.boundOnTouchMove);
     window.removeEventListener('mouseup', this.boundOnTouchUp);
     window.removeEventListener('touchmove', this.boundOnTouchMove);
@@ -709,7 +748,7 @@ class App {
 
 
 export async function createCircularGallery(container, options = {}) {
-  if (!container) return () => {};
+  if (!container) return { destroy() {}, setPaused() {} };
   const {
     items,
     bend = 3,
@@ -727,7 +766,10 @@ export async function createCircularGallery(container, options = {}) {
   container.setAttribute('role', 'region');
   container.setAttribute('aria-label', 'Circular image gallery');
 
-  const resolvedFont = await resolveFont(font, fontUrl);
+  const needsText = !!(items && items.some((item) => item?.text));
+  const resolvedFont = needsText
+    ? await resolveFont(font, fontUrl)
+    : 'bold 30px sans-serif';
   const app = new App(container, {
     items,
     bend,
@@ -738,5 +780,8 @@ export async function createCircularGallery(container, options = {}) {
     scrollEase,
     onOpenImage
   });
-  return () => app.destroy();
+  return {
+    destroy: () => app.destroy(),
+    setPaused: (paused) => app.setPaused(paused),
+  };
 }
