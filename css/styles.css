@@ -584,7 +584,7 @@ button {
   border-radius: var(--radius);
   overflow: hidden;
   background: #1a1c19;
-  aspect-ratio: 1;
+  aspect-ratio: 585 / 705;
 }
 
 .about__visual img {

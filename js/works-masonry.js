@@ -284,10 +284,12 @@ export function mountWorksMasonry() {
     order = catalog.items.map((item) => item.id);
     order._byId = new Map(catalog.items.map((item) => [item.id, item]));
     const tileHtml = (item, index) => {
+      const w = item.width || 1;
+      const h = item.height || 1;
       const media =
         item.type === "video"
-          ? `<video class="masonry__image" data-src="${item.img}" muted loop playsinline preload="none"></video>`
-          : `<img class="masonry__image" data-src="${item.img}" alt="${item.description || item.title}" decoding="async" draggable="false" />`;
+          ? `<video class="masonry__image" data-src="${item.img}" width="${w}" height="${h}" muted loop playsinline preload="none"></video>`
+          : `<img class="masonry__image" src="${item.img}" alt="${item.description || item.title}" width="${w}" height="${h}" loading="lazy" decoding="async" draggable="false" />`;
       const copy = item.note
         ? `<span class="masonry__copy"><strong>${item.description}</strong><span>${item.note}</span></span>`
         : "";
@@ -337,49 +339,40 @@ export function mountWorksMasonry() {
       if (media.tagName === "VIDEO") {
         media.muted = true;
         media.addEventListener("loadeddata", mark, { once: true });
-      } else {
-        media.addEventListener("load", mark);
-      }
+      } else if (media.complete) mark();
+      else media.addEventListener("load", mark, { once: true });
     });
 
-    const panel = page.querySelector(".works-modal__panel") || null;
-    const mediaNodes = [...root.querySelectorAll(".masonry__image")];
-    if (mediaNodes.length && "IntersectionObserver" in window) {
-      const mediaIo = new IntersectionObserver(
+    // Videos still use IO only for play/pause; images use native loading="lazy".
+    const videos = [...root.querySelectorAll("video.masonry__image")];
+    if (videos.length && "IntersectionObserver" in window) {
+      const videoIo = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            const media = entry.target;
-            const src = media.getAttribute("data-src");
-            if (!src) return;
+            const video = entry.target;
+            const src = video.getAttribute("data-src");
             if (entry.isIntersecting) {
-              if (media.getAttribute("src") !== src) {
-                media.src = src;
-                if (media.tagName === "VIDEO") media.load();
+              if (src && video.getAttribute("src") !== src) {
+                video.src = src;
+                video.load();
               }
-              if (media.tagName === "VIDEO") media.play().catch(() => {});
+              video.play().catch(() => {});
             } else {
-              if (media.tagName === "VIDEO") {
-                media.pause();
-                return;
-              }
-              // Drop decoded bitmaps that left the viewport to avoid iOS Safari OOM.
-              if (media.getAttribute("src")) {
-                media.removeAttribute("src");
-                media.removeAttribute("data-loaded");
-              }
+              video.pause();
             }
           });
         },
-        { root: panel, rootMargin: "160px 0px", threshold: 0.01 }
+        { root: page.querySelector(".works-modal__panel") || null, rootMargin: "120px 0px", threshold: 0.2 }
       );
-      mediaNodes.forEach((media) => mediaIo.observe(media));
-      root._videoIo = mediaIo;
+      videos.forEach((video) => videoIo.observe(video));
+      root._videoIo = videoIo;
     } else {
-      mediaNodes.forEach((media) => {
-        const src = media.getAttribute("data-src");
-        if (!src) return;
-        media.src = src;
-        if (media.tagName === "VIDEO") media.play().catch(() => {});
+      videos.forEach((video) => {
+        const src = video.getAttribute("data-src");
+        if (src) {
+          video.src = src;
+          video.play().catch(() => {});
+        }
       });
     }
 
